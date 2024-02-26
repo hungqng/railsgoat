@@ -9,8 +9,7 @@ jobs:
       image: ruby:2.6.5
       options: --user root
     steps:
-      - name: checkout
-        uses: actions/checkout@master
+      - uses: actions/checkout@v2
       - name: install gems
         run : |
           bundle install --without development test
