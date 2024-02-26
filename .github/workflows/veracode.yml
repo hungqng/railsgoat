@@ -15,6 +15,7 @@ jobs:
           bundle install --without development test
       - name: packaging to veracode scan
         run : |
+           gem install veracode
            bundle update veracode
            veracode prepare -v
       - name: rename file packaged
