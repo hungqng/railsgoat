@@ -10,14 +10,12 @@ jobs:
       options: --user root
     steps:
       - uses: actions/checkout@v2
-      - name: install gems
-        run : |
-          bundle install --without development test
       - name: packaging to veracode scan
         run : |
+           gem install bundler -v '1.17.3'
            gem install veracode
-           bundle update veracode
-           veracode prepare -v
+           bundle install
+           bundle exec veracode prepare
       - name: rename file packaged
         run : |
             mv tmp/* tmp/veracode.zip
